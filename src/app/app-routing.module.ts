@@ -36,7 +36,11 @@ const routes: Routes = [
   {
     path: 'sig-in',
     loadChildren: () => import('./Components/sig-in/sig-in.module').then( m => m.SigInPageModule)
+  },  {
+    path: 'product-list',
+    loadChildren: () => import('./Components/product-list/product-list.module').then( m => m.ProductListPageModule)
   },
+
 ];
 
 @NgModule({

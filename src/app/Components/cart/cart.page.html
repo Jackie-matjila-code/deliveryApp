@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Cart</ion-title>
+    <ion-buttons slot="end">
+       <ion-button>
+         <ion-badge>{{count}}</ion-badge>
+       </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<div *ngIf="product.length > 0">
+  <div *ngFor="let cart of product">
+     {{cart.name}} {{cart.price}}
+  </div>
 
+</div>
 </ion-content>

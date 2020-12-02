@@ -1,3 +1,4 @@
+import { ProductsService } from './../../Services/products/products.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.page.scss'],
 })
 export class CartPage implements OnInit {
-
-  constructor() { }
+  product = [];
+  count;
+  constructor(private productService :ProductsService) { }
 
   ngOnInit() {
+    // this.product = this.productService.getCart();
+    // this.count = this.product.length;
   }
 
 }
