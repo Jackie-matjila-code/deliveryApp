@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
-
+//import { auth } from  'firebase/app';
+//import { User } from  'firebase';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
@@ -37,4 +38,12 @@ cpassword:string = "";
     }
     
   }
+
+   login() {
+      this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      this.router.navigate(['tabs/home']);
+  }
+   logout() {
+    this.auth.signOut();
+   }
 }
