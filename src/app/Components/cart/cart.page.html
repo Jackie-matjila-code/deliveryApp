@@ -10,24 +10,15 @@
 </ion-header>
 
 <ion-content>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<div *ngIf="">
-  <ion-icon name="cart-outline"></ion-icon>
+<!-- <div *ngIf=""></div>
+  <ion-icon name="cart-outline"></ion-icon> -->
+<div *ngIf="cartItems.length === 0" >Your Cart Is empty</div>
+<div *ngIf="cartItems.length > 0">
   <div *ngFor="let product of cartItems">
-     {{product.name}} {{product.price}}
-  </div>
-=======
->>>>>>> Stashed changes
-<div *ngIf="product.length > 0">
-  <div *ngFor="let cart of product">
-     {{cart.name}} {{cart.price}}
-  </div>
-
-<<<<<<< Updated upstream
-=======
->>>>>>> b884d01f9173f5df2214ec810945c3d697a32af7
->>>>>>> Stashed changes
+    {{product.name}} {{product.price}}
+    {{product.qty}}
+    {{(product.qty * product.price) | currency: 'R'}}
+ </div>
+   <h4>Total: {{cartTotal | currency: 'R'}}</h4>
 </div>
 </ion-content>

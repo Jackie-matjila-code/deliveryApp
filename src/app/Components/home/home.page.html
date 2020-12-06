@@ -8,9 +8,6 @@
   <ion-grid>
     <ion-row>
        <ion-col size="4" *ngFor="let product of productList"> 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
         <ion-card>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa6ZxxxOq4rcneDcf5kII2UFCAwTu43l82AhkZpfMvvCernKOh32srGMcb8Mk&usqp=CAc">
           <h4>{{product.name}}</h4>
@@ -21,37 +18,9 @@
     </ion-row>
   </ion-grid>
 
-  <div *ngFor="let product of cartItems">
+<div *ngIf="cartItems.length > 0">
+<div *ngFor="let cart of cartItems" >
     {{product.name}} {{product.price}}
- </div>
-
-
-  <!-- <div>
-    <h4 class="text-center text-info mt-3">Products in your cart</h4>
-  </div>
-  <div *ngIf="cartItems.length === 0" class="alert alert-info">Your cart is Empty.</div>
-  <div  class="row">
-    <div *ngIf="cartItems.length > 0" class="list-group">
-  <div class="list-group-item" *ngFor="let item of cartItems">
-      <app-cart-item [cartItem]="item"></app-cart-item>
-  </div>
 </div>
-  </div>
-  <div>
-    <strong>Total Price: {{ cartTotal |currency:'R'}}</strong>
-    <button class="btn btn-primary ml-2">CheckOut</button>
-</div> -->
-=======
->>>>>>> Stashed changes
-        <app-product-list [productItem] ="product"></app-product-list>
-       </ion-col>
-    </ion-row>
-  </ion-grid>
-  <div class="row">
-
-  </div>
-<<<<<<< Updated upstream
-=======
->>>>>>> b884d01f9173f5df2214ec810945c3d697a32af7
->>>>>>> Stashed changes
+</div>
 </ion-content>

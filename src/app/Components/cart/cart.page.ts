@@ -1,14 +1,6 @@
-<<<<<<< Updated upstream
-import { ProductsService } from './../../Services/products/products.service';
-=======
-<<<<<<< HEAD
+import { Product } from './../../models/product';
 import { ProductsService } from './../../services/products/products.service';
 import { CartService } from './../../services/cart/cart.service';
-import { Products } from './../../models/products';
-=======
-import { ProductsService } from './../../Services/products/products.service';
->>>>>>> b884d01f9173f5df2214ec810945c3d697a32af7
->>>>>>> Stashed changes
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -17,37 +9,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.page.scss'],
 })
 export class CartPage implements OnInit {
-<<<<<<< Updated upstream
-  product = [];
+
+  product = {} as Product;
+  cartItems = [
+    // {id: 1, productId:1, name: 'Test1', qty:4, price: 25},
+    // {id: 2, productId:2, name: 'Test2', qty:4, price: 25},
+    // {id: 3, productId:3, name: 'Test3', qty:4, price: 25},
+    // {id: 4, productId:4, name: 'Test4', qty:4, price: 25},
+  ];
+  
+  cartTotal = 0;
   count;
-  constructor(private productService :ProductsService) { }
+  constructor(private msg: CartService, private productService: ProductsService) { }
 
   ngOnInit() {
-    // this.product = this.productService.getCart();
-    // this.count = this.product.length;
-=======
-<<<<<<< HEAD
+    this.msg.getMsg().subscribe((product: Product) =>{
+    
+      this.addProductToCart(product);
 
-  product = {} as Products;
-  cartItems = [];
-
-  constructor(private productServic: CartService,private productService: ProductsService) { }
-
-  ngOnInit() {
-    this.cartItems = this.productServic.getCart();
->>>>>>> Stashed changes
+      });
+    
+   
   }
-  add(){
-    this.productServic.addProductToCart(this.product);
-    console.log('List', this.productServic.getCart());
-=======
-  product = [];
-  count;
-  constructor(private productService :ProductsService) { }
 
-  ngOnInit() {
-    // this.product = this.productService.getCart();
-    // this.count = this.product.length;
->>>>>>> b884d01f9173f5df2214ec810945c3d697a32af7
+    addProductToCart(product: Product){
+    this.cartItems.push({
+      id: product.id,
+      name: product.name,
+      qty: 1,
+      price: product.price
+    });
+        this.cartTotal = 0;
+        this.cartItems.forEach(item =>{
+       this.cartTotal += (item.qty * item.price);
+     });
   }
+
+
 }
